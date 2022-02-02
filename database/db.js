@@ -1,4 +1,7 @@
+const MONGOPASS = process.env.MONGOPASS
+
+
 module.exports = {
-    db: `mongodb+srv://Instaclone:Instaclone1234@cluster0.hkh7o.mongodb.net/instaclone?retryWrites=true&w=majority`,
-    JWT: "nciuwhdcufh8347y57uwg"
+    db: `mongodb+srv://Instaclone:${MONGOPASS}@cluster0.hkh7o.mongodb.net/instaclone?retryWrites=true&w=majority`,
+    JWT: process.env.JWTPASS
 };

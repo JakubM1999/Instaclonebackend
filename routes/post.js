@@ -6,6 +6,7 @@ const Post = mongoose.model("Post")
 
 router.get('/allpost',requireLogin,(req,res)=>{
     Post.find()
+    .sort({date:-1})
     .populate("postedBy", "_id name")
     .then(posts=>{
         res.json({posts}) 
