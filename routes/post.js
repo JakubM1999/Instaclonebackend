@@ -69,7 +69,9 @@ router.put('/like', requireLogin,(req,res)=>{
         $push:{likes:req.user._id}
     },{
         new:true
-    }).exec((error,result)=>{
+    })
+    .populate("postedBy", "_id name")
+    .exec((error,result)=>{
         if(error){
             return res.status(400).json({error:error})
         }else{
@@ -84,7 +86,9 @@ router.put('/unlike', requireLogin,(req,res)=>{
         $pull:{likes:req.user._id}
     },{
         new:true
-    }).exec((error,result)=>{
+    })
+    .populate("postedBy", "_id name")
+    .exec((error,result)=>{
         if(error){
             return res.status(400).json({error:error})
         }else{
