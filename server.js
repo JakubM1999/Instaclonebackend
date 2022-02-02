@@ -3,8 +3,10 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const mongoose = require('mongoose')
-const PORT = 5001
+require('dotenv').config()
+const PORT = process.env.PORT || 5001
 const {db} = require('./database/db')
+
 
 
 
